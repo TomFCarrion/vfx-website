@@ -109,7 +109,8 @@ const MultiLayerImageSlider: React.FC<MultiLayerImageSliderProps> = ({
     setIsDraggingActive(true);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  // Update the handleMouseMove to handle touch events too
+  const handlePointerMove = (e: React.MouseEvent | React.TouchEvent) => {
     if (isDragging.current === null || !containerRef.current) return;
 
     // Prevent text selection while dragging
@@ -117,7 +118,11 @@ const MultiLayerImageSlider: React.FC<MultiLayerImageSliderProps> = ({
 
     const container = containerRef.current;
     const rect = container.getBoundingClientRect();
-    const position = ((e.clientX - rect.left) / rect.width) * 100;
+
+    // Get clientX from either mouse or touch event
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+
+    const position = ((clientX - rect.left) / rect.width) * 100;
 
     // Constrain between 0 and 100
     const clampedPosition = Math.max(0, Math.min(100, position));
@@ -236,7 +241,10 @@ const MultiLayerImageSlider: React.FC<MultiLayerImageSliderProps> = ({
         className={`${styles.sliderContainer} ${className}`}
         style={{ height, width }}
         ref={containerRef}
-        onMouseMove={handleMouseMove}
+        onMouseMove={handlePointerMove}
+        onTouchMove={handlePointerMove}
+        // Prevent the entire page from scrolling when dragging on mobile
+        onTouchStart={() => {}}
       >
         {/* Render all layers */}
         <div className={styles.layersContainer}>

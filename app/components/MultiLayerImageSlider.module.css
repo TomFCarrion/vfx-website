@@ -45,7 +45,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 4px;
+  width: 8px;
   background-color: rgba(255, 255, 255, 0.8);
   cursor: ew-resize;
   z-index: 10;
@@ -149,4 +149,29 @@
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 12px;
+}
+
+/* Make handle bigger on touch devices */
+@media (max-width: 768px) {
+  .handle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  /* Make slider controls more touch-friendly */
+  .slider {
+    height: 30px;
+  }
+
+  .slider::-webkit-slider-thumb {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+  }
 }
