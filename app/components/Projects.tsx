@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -54,6 +54,56 @@ const projects: Project[] = [
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [centeredProject, setCenteredProject] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkIfMobile();
+
+    // Update on resize
+    window.addEventListener("resize", checkIfMobile);
+
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
+  // Set up Intersection Observer for mobile
+  useEffect(() => {
+    if (!isMobile) {
+      setCenteredProject(null);
+      return;
+    }
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.7, // Consider the element visible when 70% is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setCenteredProject(entry.target.getAttribute("data-project-id"));
+        }
+      });
+    }, options);
+
+    projectRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      projectRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, [isMobile]);
 
   const openVideo = (project: Project) => {
     setSelectedProject(project);
@@ -76,6 +126,8 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
+              ref={(el) => (projectRefs.current[index] = el)}
+              data-project-id={project.id}
               className="relative aspect-[2/3] bg-gray-900 rounded-lg overflow-hidden cursor-pointer group"
               onClick={() => openVideo(project)}
             >
@@ -88,12 +140,40 @@ export default function Projects() {
                 priority={index < 3} // Prioritize loading first 3 images
               />
 
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 z-20  hover:bg-black opacity-60 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col items-center justify-center">
-                <p className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 mb-2">
+              {/* Overlay - Desktop: hover, Mobile: centered */}
+              <div
+                className={`absolute inset-0 z-20 flex flex-col items-center justify-center
+                  transition-all duration-500 ease-in-out
+                  ${
+                    isMobile
+                      ? centeredProject === project.id
+                        ? "bg-gradient-to-t from-black/70 to-transparent"
+                        : "bg-gradient-to-t from-transparent to-transparent"
+                      : "group-hover:bg-gradient-to-t group-hover:from-black/70 group-hover:to-transparent"
+                  }`}
+              >
+                <p
+                  className={`text-white text-xl font-bold mb-2 transition-opacity duration-300 text-shadow-sm
+                    ${
+                      isMobile
+                        ? centeredProject === project.id
+                          ? "opacity-100"
+                          : "opacity-0"
+                        : "opacity-0 group-hover:opacity-100"
+                    }`}
+                >
                   {project.title}
                 </p>
-                <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div
+                  className={`flex items-center gap-2 transition-opacity duration-300
+                    ${
+                      isMobile
+                        ? centeredProject === project.id
+                          ? "opacity-100"
+                          : "opacity-0"
+                        : "opacity-0 group-hover:opacity-100"
+                    }`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 text-white"
