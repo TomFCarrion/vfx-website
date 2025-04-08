@@ -126,7 +126,9 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              ref={(el) => (projectRefs.current[index] = el)}
+              ref={(el) => {
+                projectRefs.current[index] = el;
+              }}
               data-project-id={project.id}
               className="relative aspect-[2/3] bg-gray-900 rounded-lg overflow-hidden cursor-pointer group"
               onClick={() => openVideo(project)}
