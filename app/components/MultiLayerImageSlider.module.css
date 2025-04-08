@@ -1,0 +1,152 @@
+.sliderWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.sliderContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.layersContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  pointer-events: none;
+  transition: clip-path 0.25s ease, -webkit-clip-path 0.25s ease;
+}
+
+.layerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: ew-resize;
+  z-index: 10;
+  transform: translateX(-50%);
+  transition: left 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.handle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.handle::before,
+.handle::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  background-color: #666;
+}
+
+.handle::before {
+  transform: translateX(-4px);
+}
+
+.handle::after {
+  transform: translateX(4px);
+}
+
+.slidersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.sliderControl {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sliderControl label {
+  font-size: 14px;
+  color: #666;
+}
+
+.slider {
+  width: 100%;
+  height: 20px;
+  -webkit-appearance: none;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #4a90e2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #4a90e2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.layerLabels {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 11;
+}
+
+.layerLabel {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
