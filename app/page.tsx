@@ -4,6 +4,7 @@ import Projects from "./components/Projects";
 import InfoBlock from "./components/InfoBlock";
 import LogoBanner from "./components/LogoBanner";
 import Navbar from "./components/Navbar";
+import MultiLayerImageSlider from "./components/MultiLayerImageSlider";
 
 export default function Home() {
   return (
@@ -97,7 +98,51 @@ export default function Home() {
         ]}
       />
 
-      {/* Projects Component (replaces the existing projects section) */}
+      {/* Image Comparison Showcase */}
+      <section
+        id="before-after"
+        className="py-20 px-8 sm:px-16 bg-gray-50 dark:bg-gray-800"
+      >
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            Before & After
+          </h2>
+          <p className="text-center mb-10">
+            See the transformation process through different stages of
+            composition work.
+          </p>
+
+          <MultiLayerImageSlider
+            layers={[
+              {
+                id: "original",
+                src: "/comparison/original.png",
+                label: "Original Plate",
+              },
+              {
+                id: "intermediate",
+                src: "/comparison/intermediate.png",
+                label: "Cleanup & Color",
+              },
+              {
+                id: "final",
+                src: "/comparison/final.png",
+                label: "Final Composite",
+              },
+            ]}
+            height="500px"
+            width="100%"
+            className="mb-8"
+          />
+
+          <p className="text-sm text-center text-gray-600 dark:text-gray-400 mt-4">
+            Drag the sliders or use the controls below to compare the different
+            stages of the compositing process.
+          </p>
+        </div>
+      </section>
+
+      {/* Projects Component */}
       <Projects />
 
       {/* Contact Section */}
