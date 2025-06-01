@@ -340,7 +340,7 @@ const MultiLayerImageSlider: React.FC<MultiLayerImageSliderProps> = ({
       </div>
 
       {/* Render sliders */}
-      <div className={styles.slidersContainer}>
+      {/* <div className={styles.slidersContainer}>
         {sliderPositions.map((position, index) => (
           <div key={`slider-${index}`} className={styles.sliderControl}>
             <label>
@@ -359,7 +359,7 @@ const MultiLayerImageSlider: React.FC<MultiLayerImageSliderProps> = ({
             />
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

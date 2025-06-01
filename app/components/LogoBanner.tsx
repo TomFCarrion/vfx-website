@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 
 // Logo data structure
 type Logo = {
@@ -28,9 +28,10 @@ export default function LogoBanner({
 }: LogoBannerProps) {
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const controls = useAnimationControls();
   const [containerWidth, setContainerWidth] = useState(0);
   const [contentWidth, setContentWidth] = useState(0);
+  const x = useMotionValue(0);
+  const animationRef = useRef<any>(null);
 
   // Calculate container and content width for animation
   useEffect(() => {
@@ -41,40 +42,53 @@ export default function LogoBanner({
     }
   }, [logos]);
 
-  // Set up the animation
-  useEffect(() => {
-    if (containerWidth > 0 && contentWidth > 0) {
-      // Duration is based on content width and desired speed
-      const duration = contentWidth / speed;
+  // Start infinite animation
+  const startInfiniteAnimation = (fromPosition = 0) => {
+    if (contentWidth > 0) {
+      const remainingDistance = contentWidth + fromPosition;
+      const duration = remainingDistance / speed;
 
-      controls.start({
-        x: -contentWidth,
-        transition: {
-          duration,
-          ease: "linear",
-          repeat: Infinity,
-          repeatType: "loop",
+      animationRef.current = animate(x, -contentWidth, {
+        duration,
+        ease: "linear",
+        onComplete: () => {
+          // Reset to start and loop
+          x.set(0);
+          if (!isHovering) {
+            startInfiniteAnimation(0);
+          }
         },
       });
     }
-  }, [controls, containerWidth, contentWidth, speed]);
+  };
 
-  // Pause animation on hover
+  // Set up the animation when dimensions are ready
+  useEffect(() => {
+    if (containerWidth > 0 && contentWidth > 0 && !isHovering) {
+      x.set(0);
+      startInfiniteAnimation(0);
+    }
+
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.stop();
+      }
+    };
+  }, [containerWidth, contentWidth, speed]);
+
+  // Handle hover pause/resume
   useEffect(() => {
     if (isHovering) {
-      controls.stop();
-    } else {
-      controls.start({
-        x: -contentWidth,
-        transition: {
-          duration: contentWidth / speed,
-          ease: "linear",
-          repeat: Infinity,
-          repeatType: "loop",
-        },
-      });
+      // Pause animation
+      if (animationRef.current) {
+        animationRef.current.stop();
+      }
+    } else if (containerWidth > 0 && contentWidth > 0) {
+      // Resume animation from current position
+      const currentPos = x.get();
+      startInfiniteAnimation(currentPos);
     }
-  }, [isHovering, controls, contentWidth, speed]);
+  }, [isHovering, containerWidth, contentWidth, speed]);
 
   return (
     <section
@@ -93,9 +107,9 @@ export default function LogoBanner({
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          <motion.div className="flex items-center" animate={controls}>
+          <motion.div className="flex items-center" style={{ x }}>
             {/* First set of logos */}
-            <div className="flex gap-12 md:gap-24 items-center">
+            <div className="flex gap-12 md:gap-24 items-center px-12 md:px-12">
               {logos.map((logo) => (
                 <Link
                   key={logo.id}
@@ -118,7 +132,7 @@ export default function LogoBanner({
             </div>
 
             {/* Duplicate logos for seamless scrolling */}
-            <div className="flex gap-12 md:gap-24 items-center">
+            <div className="flex gap-12 md:gap-24 items-center px-12 md:px-12">
               {logos.map((logo) => (
                 <Link
                   key={`dup-${logo.id}`}

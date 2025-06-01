@@ -34,7 +34,7 @@ export default function Hero() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="max-w-6xl mx-auto px-8 sm:px-16 flex flex-col md:flex-row items-center gap-10">
+            <div className="max-w-7xl px-8 md:mr-auto md:ml-[20vw]">
               <motion.div
                 className="md:w-1/2 text-white"
                 initial={{ y: 20, opacity: 0 }}
@@ -49,7 +49,7 @@ export default function Hero() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   Hi! I'm{" "}
-                  <span className="text-[var(--color-brand)]">
+                  <span className="text-nowrap text-[var(--color-brand)]">
                     Magali Carrion
                   </span>
                 </motion.h1>
@@ -67,8 +67,7 @@ export default function Hero() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  I create beautiful, functional websites and applications with
-                  a focus on user experience and clean code.
+                  I help make the magic happen.
                 </motion.p>
                 <motion.div
                   className="flex gap-4"
@@ -78,15 +77,15 @@ export default function Hero() {
                 >
                   <a
                     href="#contact"
-                    className="rounded-full text-white px-6 py-3 font-medium transition-colors"
-                    style={{ backgroundColor: "var(--color-brand)" }}
+                    className=" text-nowrap  rounded-full border border-brand text-white hover:scale-110 hover:bg-white hover:text-black px-6 py-3 font-medium transition-colors flex items-center gap-2"
                   >
                     Get in Touch
                   </a>
                   <a
                     href="#"
                     onClick={toggleReel}
-                    className="rounded-full border border-brand text-white hover:bg-brand hover:text-gray-900 px-6 py-3 font-medium transition-colors flex items-center gap-2"
+                    className=" inline-flex  gap-2 text-nowrap rounded-full text-white  hover:scale-110 px-6 py-3 font-medium transition-colors"
+                    style={{ backgroundColor: "var(--color-brand)" }}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

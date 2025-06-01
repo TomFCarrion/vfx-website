@@ -8,7 +8,7 @@ import MultiLayerImageSlider from "./components/MultiLayerImageSlider";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen bg-white dark:bg-[#1E292C] text-gray-900 dark:text-gray-100 font-[family-name:var(--font-geist-sans)]">
       {/* Navigation */}
       <Navbar />
 
@@ -53,8 +53,8 @@ export default function Home() {
           },
         ]}
         socialLinks={[
-          { type: "email", href: "mailto:your.email@example.com" },
-          { type: "linkedin", href: "https://linkedin.com/in/yourprofile" },
+          { type: "email", href: "mailto:maga.oth@gmail.com" },
+          { type: "linkedin", href: "https://linkedin.com/in/magalicarrion" },
           {
             type: "imdb",
             href: "https://www.imdb.com/es/name/nm12651220/?ref_=nv_sr_srsg_0_tt_0_nm_4_in_0_q_magali%2520carrion",
@@ -93,7 +93,7 @@ export default function Home() {
             id: "lasociedad",
             name: "La Sociedad Post",
             imageUrl: "/logos/lasociedad.avif",
-            link: "https://lasociedadpost.com",
+            link: "https://lasp.co/",
           },
         ]}
       />
@@ -101,15 +101,15 @@ export default function Home() {
       {/* Image Comparison Showcase */}
       <section
         id="before-after"
-        className="py-20 px-8 sm:px-16 bg-gray-50 dark:bg-gray-800"
+        className="py-20 px-8 sm:pt-16 sm:pb-0 bg-[#1E292C]"
       >
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-4 text-center">
             Before & After
           </h2>
           <p className="text-center mb-10">
-            See the transformation process through different stages of
-            composition work.
+            Move the handles and see the transformation process through some of
+            the stages of compositing process.
           </p>
 
           <MultiLayerImageSlider
@@ -135,10 +135,10 @@ export default function Home() {
             className="mb-8"
           />
 
-          <p className="text-sm text-center text-gray-600 dark:text-gray-400 mt-4">
+          {/* <p className="text-sm text-center text-gray-600 dark:text-gray-400 mt-4">
             Drag the sliders or use the controls below to compare the different
             stages of the compositing process.
-          </p>
+          </p> */}
         </div>
       </section>
 
@@ -146,10 +146,10 @@ export default function Home() {
       <Projects />
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-8 sm:px-16">
+      <section id="contact" className="py-20 pt-16 pb-0">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+          <div className="bg-[#1E292C] p-8 rounded-lg ">
             <p className="text-center mb-8">
               I'm currently available for freelance work or full-time positions.
               If you have a project that needs some creative touch, or if you're
@@ -157,7 +157,7 @@ export default function Home() {
             </p>
 
             <form
-              action="https://formsubmit.co/tomfcarrion@gmail.com"
+              action="https://formsubmit.co/maga.oth@gmail.com"
               method="POST"
               className="space-y-6"
             >
@@ -240,7 +240,8 @@ export default function Home() {
               <div className="text-center">
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+                  className=" inline-flex  gap-2 text-nowrap rounded-full text-white  hover:scale-110 px-6 py-3 font-medium transition-colors"
+                  style={{ backgroundColor: "var(--color-brand)" }}
                 >
                   Send Message
                 </button>
@@ -249,7 +250,7 @@ export default function Home() {
 
             <div className="mt-8 flex justify-center gap-6">
               <a
-                href="https://linkedin.com/in/yourprofile"
+                href="https://linkedin.com/in/magalicarrion"
                 className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -285,10 +286,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-gray-100 dark:bg-gray-900 text-center">
+      <footer className="py-8 bg-gray-100 dark:bg-[#1E292C] text-center">
         <div className="max-w-6xl mx-auto px-8">
           <p>
-            © {new Date().getFullYear()} Magali Carrion. All rights reserved.
+            © {new Date().getFullYear()} Magali Carrion. It’s not magic, it’s
+            hard work.
           </p>
         </div>
       </footer>

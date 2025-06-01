@@ -39,7 +39,7 @@ const InfoBlock = ({
   return (
     <section
       id="about"
-      className="py-20 px-8 sm:px-16 bg-white dark:bg-gray-900"
+      className="py-20 px-8 sm:px-16 bg-white dark:bg-[#1E292C]"
     >
       <div className="max-w-6xl mx-auto">
         <div
@@ -101,14 +101,16 @@ const InfoBlock = ({
                     download={button.download}
                     target={button.target}
                     rel={button.rel}
-                    className={`
-                      rounded-full px-6 py-3 font-medium transition-colors flex items-center gap-2
-                      ${
-                        button.isPrimary
-                          ? "bg-brand hover:bg-brand-dark text-white"
-                          : "border border-brand text-white hover:bg-brand hover:text-gray-900"
-                      }
-                    `}
+                    // className={`
+                    //   rounded-full px-6 py-3 font-medium transition-colors flex items-center gap-2
+                    //   ${
+                    //     button.isPrimary
+                    //       ? "bg-brand hover:bg-brand-dark text-white"
+                    //       : "border border-brand text-white hover:bg-brand hover:text-gray-900"
+                    //   }
+                    // `}
+                    className=" inline-flex  gap-2 text-nowrap rounded-full text-white  hover:scale-110 px-6 py-3 font-medium transition-colors"
+                    style={{ backgroundColor: "var(--color-brand)" }}
                   >
                     {button.icon && button.icon}
                     {button.text}

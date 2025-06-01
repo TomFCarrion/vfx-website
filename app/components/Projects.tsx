@@ -114,10 +114,7 @@ export default function Projects() {
   };
 
   return (
-    <section
-      id="projects"
-      className="py-20 px-8 sm:px-16 bg-gray-50 dark:bg-gray-800"
-    >
+    <section id="projects" className="py-20 px-8 sm:px-16 bg-[#1E292C]">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center">Projects</h2>
 
@@ -130,7 +127,7 @@ export default function Projects() {
                 projectRefs.current[index] = el;
               }}
               data-project-id={project.id}
-              className="relative aspect-[2/3] bg-gray-900 rounded-lg overflow-hidden cursor-pointer group"
+              className="relative aspect-[2/3] bg-[#1E292C] rounded-lg overflow-hidden cursor-pointer group"
               onClick={() => openVideo(project)}
             >
               <Image
