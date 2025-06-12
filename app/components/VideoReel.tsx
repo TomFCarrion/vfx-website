@@ -24,7 +24,7 @@ export default function VideoReel({ showReel, toggleReel }: VideoReelProps) {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <iframe
-          src="https://player.vimeo.com/video/1064462152?h=1090143438&autoplay=1&title=0&byline=0&portrait=0"
+          src="https://player.vimeo.com/video/1090143438?h=1090143438&autoplay=1&title=0&byline=0&portrait=0"
           className="absolute top-0 left-0 w-full h-full"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"

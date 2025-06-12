@@ -129,7 +129,7 @@ export default function Home() {
               },
               {
                 id: "intermediate",
-                src: "/comparison/SAV_comp_1034.webp",
+                src: "/comparison/SAV_Comp_1034.webp",
                 label: "Undistort/Keying",
               },
               {
