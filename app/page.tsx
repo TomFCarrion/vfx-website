@@ -20,7 +20,7 @@ export default function Home() {
       <InfoBlock
         title="About me."
         subtitle="(she/her)"
-        imageSrc="/images/maga.avif"
+        imageSrc="/images/maga.webp"
         imageAlt="Magali Carrion smiling in a black and white portrait"
         paragraphs={[
           "Hi! I'm Magali Carrion, a 35 years old VFX compositor from Argentina. Over the past years I've working on different live action productions and willing to find the next challenge.",
