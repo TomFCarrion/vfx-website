@@ -17,31 +17,31 @@ const projects: Project[] = [
   {
     id: "secuestro",
     title: "Secuestro del Vuelo 601",
-    posterUrl: "/images/secuestro-poster.jpg",
+    posterUrl: "/images/secuestro-poster.webp",
     videoUrl: "https://www.youtube.com/embed/0veEBtSKANI",
   },
   {
     id: "titans",
     title: "Titans",
-    posterUrl: "/images/titans-poster.jpg",
+    posterUrl: "/images/titans-poster.webp",
     videoUrl: "https://www.youtube.com/embed/G2dpMCxjHpU",
   },
   {
     id: "recruit",
     title: "The Recruit",
-    posterUrl: "/images/recruit-poster.jpg",
+    posterUrl: "/images/recruit-poster.webp",
     videoUrl: "https://www.youtube.com/embed/Hywe0zDSSSE",
   },
   {
     id: "barrabrava",
     title: "Barrabrava",
-    posterUrl: "/images/barrabrava-poster.jpg",
+    posterUrl: "/images/barrabrava-poster.webp",
     videoUrl: "https://www.youtube.com/embed/yeUW6cW-FZA",
   },
   {
     id: "santaevita",
     title: "Santa Evita",
-    posterUrl: "/images/santaevita-poster.jpg",
+    posterUrl: "/images/santaevita-poster.webp",
     videoUrl: "https://www.youtube.com/embed/ZSZVPd8s7Fs",
   },
   {

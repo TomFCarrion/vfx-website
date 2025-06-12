@@ -24,7 +24,7 @@ export default function VideoReel({ showReel, toggleReel }: VideoReelProps) {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <iframe
-          src="https://player.vimeo.com/video/1064462152?h=de9a7f4d73&autoplay=1&title=0&byline=0&portrait=0"
+          src="https://player.vimeo.com/video/1064462152?h=1090143438&autoplay=1&title=0&byline=0&portrait=0"
           className="absolute top-0 left-0 w-full h-full"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
@@ -32,7 +32,7 @@ export default function VideoReel({ showReel, toggleReel }: VideoReelProps) {
         ></iframe>
         <motion.button
           onClick={toggleReel}
-          className="absolute cursor-pointer top-4 right-4 z-50 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75"
+          className="absolute cursor-pointer top-20 md:top-4 right-4 z-50 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75"
           aria-label="Close video"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}

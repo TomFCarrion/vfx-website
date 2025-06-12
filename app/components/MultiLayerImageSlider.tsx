@@ -12,14 +12,12 @@ interface ImageLayer {
 
 interface MultiLayerImageSliderProps {
   layers: ImageLayer[];
-  height?: string;
   width?: string;
   className?: string;
 }
 
 const MultiLayerImageSlider: React.FC<MultiLayerImageSliderProps> = ({
   layers,
-  height = "400px",
   width = "100%",
   className = "",
 }) => {
@@ -161,36 +159,31 @@ const MultiLayerImageSlider: React.FC<MultiLayerImageSliderProps> = ({
 
       // Animate each slider in sequence
       for (let i = 0; i < sliderPositions.length; i++) {
-        // Store original position to return to
-        const originalPosition = sliderPositions[i];
+        // Store original positions to return to
+        const originalPositions = [...sliderPositions];
 
         // Set this slider as actively animating
         setAnimationSequence([i]);
 
-        // Move right (with transition)
+        // Move all the way right and push other sliders (with transition)
         setSliderPositions((prev) => {
           const newPositions = [...prev];
-          newPositions[i] = Math.min(90, originalPosition + 15);
+          // Move current slider to the right
+          newPositions[i] = 98;
+
+          // Push all sliders to the right of this one
+          for (let j = i + 1; j < newPositions.length; j++) {
+            newPositions[j] = 98;
+          }
           return newPositions;
         });
+
         // Wait for transition to complete
-        await new Promise((resolve) => setTimeout(resolve, 400));
+        await new Promise((resolve) => setTimeout(resolve, 600));
 
-        // Move left (with transition)
-        setSliderPositions((prev) => {
-          const newPositions = [...prev];
-          newPositions[i] = Math.max(10, originalPosition - 15);
-          return newPositions;
-        });
-        await new Promise((resolve) => setTimeout(resolve, 400));
-
-        // Return to original (with transition)
-        setSliderPositions((prev) => {
-          const newPositions = [...prev];
-          newPositions[i] = originalPosition;
-          return newPositions;
-        });
-        await new Promise((resolve) => setTimeout(resolve, 400));
+        // Move all back to original positions (with transition)
+        setSliderPositions(originalPositions);
+        await new Promise((resolve) => setTimeout(resolve, 600));
       }
 
       setAnimationSequence([]);
@@ -239,7 +232,7 @@ const MultiLayerImageSlider: React.FC<MultiLayerImageSliderProps> = ({
     <div className={styles.sliderWrapper}>
       <div
         className={`${styles.sliderContainer} ${className}`}
-        style={{ height, width }}
+        style={{ width }}
         ref={containerRef}
         onMouseMove={handlePointerMove}
         onTouchMove={handlePointerMove}
