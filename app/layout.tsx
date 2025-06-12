@@ -16,15 +16,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Magali Carrion - VFX Compositor",
+  metadataBase: new URL("https://magalicarrion.com"),
+  title: {
+    default: "Magali Carrion - VFX Compositor",
+    template: "%s | Magali Carrion",
+  },
   description:
     "Experienced VFX compositor specializing in invisible effects for live action productions. Currently seeking opportunities in New Zealand.",
   keywords:
-    "VFX compositor, New Zealand jobs, visual effects, film industry, post-production, compositing artist",
-  authors: [{ name: "Magali Carrion" }],
+    "VFX compositor, New Zealand jobs, visual effects, film industry, post-production, compositing artist, Nuke, After Effects, invisible effects, film compositing, TV compositing",
+  authors: [{ name: "Magali Carrion", url: "https://magalicarrion.com" }],
   creator: "Magali Carrion",
   publisher: "Magali Carrion",
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   alternates: {
     canonical: "https://magalicarrion.com",
   },
@@ -35,12 +49,14 @@ export const metadata: Metadata = {
     description:
       "Experienced VFX compositor specializing in invisible effects for live action productions. Currently seeking opportunities in New Zealand.",
     siteName: "Magali Carrion Portfolio",
+    locale: "en_US",
     images: [
       {
         url: "/images/maga.webp",
         width: 1200,
         height: 630,
         alt: "Magali Carrion - VFX Compositor",
+        type: "image/webp",
       },
     ],
   },
@@ -49,12 +65,34 @@ export const metadata: Metadata = {
     title: "Magali Carrion - VFX Compositor",
     description:
       "Experienced VFX compositor specializing in invisible effects for live action productions. Currently seeking opportunities in New Zealand.",
-    images: ["/images/maga.webp"],
+    images: [
+      {
+        url: "/images/maga.webp",
+        alt: "Magali Carrion - VFX Compositor",
+      },
+    ],
     creator: "@magalicarrion",
+    site: "@magalicarrion",
   },
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: "#1E292C",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#1E292C" },
+  ],
   category: "portfolio",
+  verification: {
+    google: "add-your-google-site-verification-here",
+  },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black",
+    "format-detection": "telephone=no",
+  },
 };
 
 export default function RootLayout({
@@ -63,9 +101,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
         <Script
           id="schema-markup"
           type="application/ld+json"
@@ -90,14 +130,35 @@ export default function RootLayout({
                     "Visual Effects",
                     "Compositing",
                     "Post-production",
+                    "Nuke",
+                    "After Effects",
+                    "Digital Compositing",
+                    "Color Correction",
+                    "Rotoscoping",
                   ],
                   seeks: {
-                    "@type": "JobPosting",
+                    "@type": "EmployeeRole",
+                    roleName: "VFX Compositor",
                     jobLocation: {
                       "@type": "Country",
                       name: "New Zealand",
                     },
+                    availabilityStarts: new Date().toISOString().split("T")[0],
                     employmentType: ["FULL_TIME", "CONTRACTOR"],
+                    responsibilities: [
+                      "Visual effects compositing",
+                      "Digital image manipulation",
+                      "Color correction",
+                      "Rotoscoping",
+                      "Invisible effects",
+                    ],
+                    skills: [
+                      "Nuke",
+                      "After Effects",
+                      "Digital Compositing",
+                      "Color Correction",
+                      "Rotoscoping",
+                    ],
                     industry: [
                       "Film",
                       "Television",
@@ -110,6 +171,15 @@ export default function RootLayout({
                     "@type": "ImageObject",
                     url: "https://magalicarrion.com/images/maga.webp",
                     caption: "Magali Carrion - VFX Compositor",
+                    width: "1200",
+                    height: "630",
+                    encodingFormat: "image/webp",
+                  },
+                  workExample: {
+                    "@type": "CreativeWork",
+                    name: "VFX Portfolio",
+                    description:
+                      "Collection of visual effects work for various film and television productions",
                   },
                 },
                 {
@@ -123,6 +193,11 @@ export default function RootLayout({
                     "@type": "Country",
                     name: "New Zealand",
                   },
+                  offers: {
+                    "@type": "Offer",
+                    availability: "https://schema.org/InStock",
+                    areaServed: "New Zealand",
+                  },
                 },
                 {
                   "@type": "WebSite",
@@ -131,6 +206,12 @@ export default function RootLayout({
                   description:
                     "Portfolio and professional website of Magali Carrion, VFX Compositor seeking opportunities in New Zealand",
                   author: { "@id": "#person" },
+                  inLanguage: "en-US",
+                  copyrightYear: new Date().getFullYear(),
+                  potentialAction: {
+                    "@type": "ContactAction",
+                    target: "https://magalicarrion.com/#contact",
+                  },
                 },
               ],
             }),
