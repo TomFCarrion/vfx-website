@@ -64,6 +64,12 @@ const Navbar = () => {
               About
             </a>
             <a
+              href="#before-after"
+              className="text-white hover:text-brand transition-colors"
+            >
+              Before & After
+            </a>
+            <a
               href="#projects"
               className="text-white hover:text-brand transition-colors"
             >
@@ -123,6 +129,13 @@ const Navbar = () => {
               className="text-white text-2xl font-medium hover:text-brand transition-colors"
             >
               About
+            </a>
+            <a
+              href="#before-after"
+              onClick={closeMobileMenu}
+              className="text-white text-2xl font-medium hover:text-brand transition-colors"
+            >
+              Before & After
             </a>
             <a
               href="#projects"

@@ -124,12 +124,12 @@ const InfoBlock = ({
 
             {/* Social Links */}
             {socialLinks && socialLinks.length > 0 && (
-              <div className="flex gap-4">
+              <div className="flex gap-4 ">
                 {socialLinks.map((link, index) => (
                   <Link
                     key={index}
                     href={link.href}
-                    className="text-gray-500 hover:text-brand transition-colors"
+                    className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
                     target={link.type !== "email" ? "_blank" : undefined}
                     rel={
                       link.type !== "email" ? "noopener noreferrer" : undefined

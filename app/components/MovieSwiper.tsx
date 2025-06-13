@@ -61,6 +61,24 @@ const projects: Project[] = [
     posterUrl: "/images/entrelazados-poster.webp",
     videoUrl: "https://www.youtube.com/embed/dFtsDuykYko",
   },
+  {
+    id: "soygeorgina",
+    title: "Soy Georgina",
+    posterUrl: "/images/soygeorgina-poster.webp",
+    videoUrl: "https://www.youtube.com/embed/dFtsDuykYko",
+  },
+  {
+    id: "campamentoconmama",
+    title: "Campamento con Mamá",
+    posterUrl: "/images/campamentoconmama-poster.webp",
+    videoUrl: "https://www.youtube.com/embed/dFtsDuykYko",
+  },
+  {
+    id: "lanochesinmi",
+    title: "La Noche Sin Milagros",
+    posterUrl: "/images/lanochesinmi-poster.webp",
+    videoUrl: "https://www.youtube.com/embed/dFtsDuykYko",
+  },
 ];
 
 export default function MovieSwiper() {
@@ -69,7 +87,7 @@ export default function MovieSwiper() {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center">Projects</h2>
 
-        <div className="relative max-w-5xl mx-auto overflow-hidden p-2">
+        <div className="relative max-w-3xl mx-auto overflow-hidden p-2">
           <Swiper
             effect={"coverflow"}
             grabCursor={true}
