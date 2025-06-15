@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 interface VideoReelProps {
   showReel: boolean;
@@ -6,6 +7,17 @@ interface VideoReelProps {
 }
 
 export default function VideoReel({ showReel, toggleReel }: VideoReelProps) {
+  useEffect(() => {
+    if (showReel) {
+      // Force a reload of the iframe when showReel becomes true
+      const iframe = document.querySelector("iframe");
+      if (iframe) {
+        const currentSrc = iframe.src;
+        iframe.src = currentSrc;
+      }
+    }
+  }, [showReel]);
+
   if (!showReel) return null;
 
   return (

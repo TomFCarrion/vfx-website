@@ -1,16 +1,33 @@
 "use client";
 
 import BackgroundVideo from "./BackgroundVideo";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import VideoReel from "./VideoReel";
+import { useSearchParams } from "next/navigation";
+import { track } from "../utils/mixpanel";
 
 export default function Hero() {
   const [showReel, setShowReel] = useState(false);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    // Check if showReel query parameter is present
+    const shouldShowReel = searchParams.get("showReel") === "true";
+    if (shouldShowReel) {
+      // Small delay to ensure the component is mounted
+      const timer = setTimeout(() => {
+        setShowReel(true);
+        track("Reel Opened", { source: "thank_you_page" });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [searchParams]);
 
   const toggleReel = (e: React.MouseEvent) => {
     e.preventDefault();
     setShowReel(!showReel);
+    track("Reel Toggled", { action: showReel ? "close" : "open" });
   };
 
   return (
@@ -77,14 +94,14 @@ export default function Hero() {
                 >
                   <a
                     href="#contact"
-                    className=" text-nowrap  rounded-full border border-brand text-white hover:scale-110 hover:bg-white hover:text-black px-6 py-3 font-medium transition-colors flex items-center gap-2"
+                    className="text-nowrap rounded-full border border-brand text-white hover:scale-110 hover:bg-white hover:text-black px-6 py-3 font-medium transition-colors flex items-center gap-2"
                   >
                     Get in Touch
                   </a>
                   <a
                     href="#"
                     onClick={toggleReel}
-                    className=" inline-flex  gap-2 text-nowrap rounded-full text-white  hover:scale-110 px-6 py-3 font-medium transition-colors"
+                    className="inline-flex gap-2 text-nowrap rounded-full text-white hover:scale-110 px-6 py-3 font-medium transition-colors"
                     style={{ backgroundColor: "var(--color-brand)" }}
                   >
                     <svg

@@ -129,12 +129,12 @@ export default function Home() {
               },
               {
                 id: "intermediate",
-                src: "/comparison/SAV_Comp_1034.webp",
+                src: "/comparison/SAV_BG_1034.webp",
                 label: "Undistort/Keying",
               },
               {
                 id: "final",
-                src: "/comparison/SAV_BG_1034.webp",
+                src: "/comparison/SAV_Comp_1034.webp",
                 label: "Final Comp",
               },
             ]}
@@ -248,7 +248,7 @@ export default function Home() {
               <input
                 type="hidden"
                 name="_next"
-                value="https://yourwebsite.com/thank-you"
+                value="https://magalicarrion.com/thank-you"
               />
 
               <div className="text-center">
