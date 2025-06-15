@@ -191,6 +191,17 @@ const MultiLayerImageSlider: React.FC<MultiLayerImageSliderProps> = ({
       setHasPlayedWelcome(true);
     };
 
+    // Check if we're at the before-after section via hash
+    const checkHashAndAnimate = () => {
+      if (window.location.hash === "#before-after" && !hasAnimated.current) {
+        hasAnimated.current = true;
+        startWelcomeAnimation();
+      }
+    };
+
+    // Check immediately in case of direct navigation
+    checkHashAndAnimate();
+
     // Create intersection observer
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -220,11 +231,15 @@ const MultiLayerImageSlider: React.FC<MultiLayerImageSliderProps> = ({
       observerRef.current.observe(containerRef.current);
     }
 
-    // Clean up the observer on unmount
+    // Listen for hash changes
+    window.addEventListener("hashchange", checkHashAndAnimate);
+
+    // Clean up the observer and event listener on unmount
     return () => {
       if (observerRef.current) {
         observerRef.current.disconnect();
       }
+      window.removeEventListener("hashchange", checkHashAndAnimate);
     };
   }, [sliderPositions, sliderPositions.length, hasPlayedWelcome]);
 
