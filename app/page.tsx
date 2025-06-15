@@ -111,13 +111,14 @@ export default function Home() {
                 label: "Original Plate",
               },
               {
+                src: "/comparison/SAV_BG_1034.webp",
                 id: "intermediate",
-                src: "/comparison/SAV_Comp_1034.webp",
                 label: "Undistort/Keying",
               },
               {
                 id: "final",
-                src: "/comparison/SAV_BG_1034.webp",
+                src: "/comparison/SAV_Comp_1034.webp",
+
                 label: "Final Comp",
               },
             ]}
