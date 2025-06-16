@@ -5,7 +5,7 @@ import BackgroundVideo from "../components/BackgroundVideo";
 
 export default function ThankYou() {
   return (
-    <main className="min-h-screen bg-white dark:bg-[#1E292C] text-gray-900 dark:text-gray-100 font-[family-name:var(--font-geist-sans)]">
+    <main className="min-h-screen bg-[#1E292C]text-gray-100 font-[family-name:var(--font-geist-sans)]">
       <section className="relative h-screen w-full overflow-hidden">
         {/* Background video */}
         <BackgroundVideo />
@@ -26,7 +26,7 @@ export default function ThankYou() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <a
-                href="/files/Magali Carrion - Resume.pdf"
+                href="/files/Magali%20Carrion%20-%20Resume.pdf"
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-brand text-white hover:scale-110 hover:bg-white hover:text-black px-6 py-3 font-medium transition-colors"
               >

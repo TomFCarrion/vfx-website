@@ -10,7 +10,7 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-[#1E292C] text-gray-900 dark:text-gray-100 font-[family-name:var(--font-geist-sans)]">
+    <main className="min-h-screen bg-[#1E292C] text-gray-100 font-[family-name:var(--font-geist-sans)]">
       <header>
         <Navbar />
       </header>
@@ -37,6 +37,7 @@ export default function Home() {
           {
             text: "Download CV",
             href: "/files/Magali Carrion - Resume.pdf",
+            target: "_blank",
             download: true,
           },
           {
@@ -123,7 +124,6 @@ export default function Home() {
               {
                 id: "final",
                 src: "/comparison/SAV_Comp_1034.webp",
-
                 label: "Final Comp",
               },
             ]}
@@ -142,7 +142,7 @@ export default function Home() {
       {/* Contact Section */}
       <section
         id="contact"
-        className="py-20 px-8 sm:px-16 bg-white dark:bg-[#1E292C]"
+        className="py-20 px-8 sm:px-16 bg-[#1E292C]"
         aria-label="Contact Form"
       >
         <div className="max-w-2xl mx-auto">
@@ -152,21 +152,31 @@ export default function Home() {
           </p>
 
           <form
-            action="https://formsubmit.co/magalicarrion@gmail.com"
+            action="https://api.web3forms.com/submit"
             method="POST"
             className="space-y-6"
           >
             <input
               type="hidden"
-              name="_next"
+              name="access_key"
+              value="8421c31c-8364-481b-b0e7-6f7c9f97ea45"
+            />
+            <input
+              type="hidden"
+              name="redirect"
               value="https://magalicarrion.com/thank-you"
             />
             <input
               type="hidden"
-              name="_subject"
+              name="subject"
               value="New contact from website!"
             />
-            <input type="hidden" name="_captcha" value="false" />
+            <input
+              type="hidden"
+              name="from_name"
+              value="Magali Carrion Website"
+            />
+            <input type="hidden" name="template" value="table" />
 
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -177,7 +187,7 @@ export default function Home() {
                 id="name"
                 name="name"
                 required
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand focus:border-transparent"
+                className="w-full px-4 py-2 rounded-lg border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-brand focus:border-transparent"
               />
             </div>
 
@@ -190,7 +200,7 @@ export default function Home() {
                 id="email"
                 name="email"
                 required
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand focus:border-transparent"
+                className="w-full px-4 py-2 rounded-lg border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-brand focus:border-transparent"
               />
             </div>
 
@@ -206,7 +216,7 @@ export default function Home() {
                 name="message"
                 required
                 rows={4}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand focus:border-transparent"
+                className="w-full px-4 py-2 rounded-lg border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-brand focus:border-transparent"
               ></textarea>
             </div>
 
@@ -221,13 +231,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer
-        className="py-8 bg-gray-100 dark:bg-[#1E292C] text-center"
-        role="contentinfo"
-      >
+      <footer className="py-8 bg-[#1E292C] text-center" role="contentinfo">
         <div className="max-w-6xl mx-auto px-8">
           <p>
             <strong>© {new Date().getFullYear()} Magali Carrion. </strong>
+            <br className="hidden md:block" />
             <span className="italic"> It's not magic, it's hard work.</span>
           </p>
         </div>

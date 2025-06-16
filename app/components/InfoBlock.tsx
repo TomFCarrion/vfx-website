@@ -37,10 +37,7 @@ const InfoBlock = ({
   imageOnLeft = true,
 }: InfoBlockProps) => {
   return (
-    <section
-      id="about"
-      className="py-20 px-8 sm:px-16 bg-white dark:bg-[#1E292C]"
-    >
+    <section id="about" className="py-20 px-8 sm:px-16 bg-[#1E292C]">
       <div className="max-w-6xl mx-auto">
         <div
           className={`flex flex-col ${
@@ -78,11 +75,7 @@ const InfoBlock = ({
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-3xl font-bold mb-1">{title}</h2>
-            {subtitle && (
-              <p className="text-gray-500 dark:text-gray-400 mb-6">
-                {subtitle}
-              </p>
-            )}
+            {subtitle && <p className="text-gray-400 mb-6">{subtitle}</p>}
 
             {/* Paragraphs */}
             <div className="space-y-4 mb-8">
@@ -129,7 +122,7 @@ const InfoBlock = ({
                   <Link
                     key={index}
                     href={link.href}
-                    className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+                    className="text-gray-400 hover:text-blue-400"
                     target={link.type !== "email" ? "_blank" : undefined}
                     rel={
                       link.type !== "email" ? "noopener noreferrer" : undefined
