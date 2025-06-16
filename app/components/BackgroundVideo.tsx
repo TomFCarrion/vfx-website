@@ -24,7 +24,7 @@ export default function BackgroundVideo() {
         playsInline
         className="absolute w-full h-full object-cover"
       >
-        <source src="/videos/reel_bg.mp4" type="video/mp4" />
+        <source src="/videos/reel_bg_2025.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
