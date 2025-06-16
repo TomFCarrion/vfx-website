@@ -114,7 +114,10 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 px-8 sm:px-16 bg-[#1E292C]">
+    <section
+      id="projects"
+      className="py-10 md:py-20 px-8 sm:px-16 bg-[#1E292C]"
+    >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center">Projects</h2>
 

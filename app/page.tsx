@@ -36,8 +36,13 @@ export default function Home() {
         buttons={[
           {
             text: "Download CV",
-            href: "/cv.pdf",
+            href: "/files/Magali Carrion - Resume.pdf",
             download: true,
+          },
+          {
+            text: "Get in touch",
+            href: "/#contact",
+            isPrimary: true,
           },
         ]}
         socialLinks={[
@@ -47,7 +52,7 @@ export default function Home() {
           },
           {
             type: "imdb",
-            href: "https://www.imdb.com/name/nm10901434/",
+            href: "https://www.imdb.com/es/name/nm12651220/",
           },
         ]}
       />
@@ -91,7 +96,7 @@ export default function Home() {
       {/* Before & After Section */}
       <section
         id="before-after"
-        className="py-20 px-8 sm:pt-16 sm:pb-0 bg-[#1E292C]"
+        className="py-10 md:py-20 px-4 sm:pt-16 sm:pb-0 bg-[#1E292C]"
         aria-label="Before and After Comparison"
       >
         <div className="max-w-5xl mx-auto">

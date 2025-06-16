@@ -26,7 +26,7 @@ export default function ThankYou() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <a
-                href="/cv.pdf"
+                href="/files/Magali Carrion - Resume.pdf"
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-brand text-white hover:scale-110 hover:bg-white hover:text-black px-6 py-3 font-medium transition-colors"
               >

@@ -83,9 +83,11 @@ const projects: Project[] = [
 
 export default function MovieSwiper() {
   return (
-    <section className="py-20 px-8 sm:px-16 bg-black">
+    <section className="py-10 md:py-20 px-3 sm:px-16 bg-black">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center">Projects</h2>
+        <h2 className="text-3xl font-bold mb-10 md:mb-12 text-center">
+          Projects
+        </h2>
 
         <div className="relative max-w-3xl mx-auto overflow-hidden p-2">
           <Swiper
