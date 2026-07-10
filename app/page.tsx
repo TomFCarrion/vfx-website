@@ -45,7 +45,7 @@ export default function Home() {
         imageSrc="/images/maga.webp"
         imageAlt="Magali Carrion smiling in a black and white portrait"
         paragraphs={[
-          "Hi! I'm Magali Carrion, a 35 years old VFX compositor from Argentina. Over the past years I've working on different live action productions and willing to find the next challenge.",
+          "Hi! I'm Magali Carrion, a 36 years old VFX compositor from Argentina. Over the past years I've working on different live action productions and willing to find the next challenge.",
           "I enjoy doing invisible effects and would love to keep learning about compositing. I also love teaching and tutor future compositors everytime I can.",
           "Away from the pc I like photography, cooking, reading, football and cats (specially mine two!).",
           "And of course, I can't even think without coffee first.",
@@ -108,6 +108,18 @@ export default function Home() {
             name: "La Sociedad Post",
             imageUrl: "/logos/lasociedad.avif",
             link: "https://lasp.co/",
+          },
+          {
+            id: "mor",
+            name: "MOR - Masters of Reality",
+            imageUrl: "/logos/MOR.png",
+            link: "https://morvfx.com",
+          },
+          {
+            id: "o2",
+            name: "O2 Filmes",
+            imageUrl: "/logos/O2.jpg",
+            link: "https://www.o2filmes.com",
           },
         ]}
       />

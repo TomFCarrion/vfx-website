@@ -26,6 +26,18 @@ type Project = {
 // Projects data with local image paths
 const projects: Project[] = [
   {
+    id: "eastofeden",
+    title: "East of Eden",
+    posterUrl: "/images/east-poster.webp",
+    videoUrl: "https://www.youtube.com/embed/fdBr5KyUilU",
+  },
+  {
+    id: "brazil70",
+    title: "Brazil '70: The Third Star",
+    posterUrl: "/images/brasil-poster.webp",
+    videoUrl: "https://www.youtube.com/embed/EzOpCMbRP-s",
+  },
+  {
     id: "secuestro",
     title: "Secuestro del Vuelo 601",
     posterUrl: "/images/secuestro-poster.webp",
